@@ -20,6 +20,13 @@ client.connect()
 //Use cors for cross origin requests
 app.use(cors());
 
+//API routes
+app.use("/api/airlines",airlineRoutes);
+app.use("/api/flights",flightRoutes);
+app.use("/api/cargo",cargoRoutes);
+app.use("/api/passengers",passengerRoutes);
+app.use("/api/terminal",terminalRoutes);
+
 app.listen(PORT,()=>{
     console.log(`running at http://localhost:${PORT}`);
 })
