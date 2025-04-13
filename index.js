@@ -2,6 +2,11 @@ import 'dotenv/config';
 import client from './connection.js';
 import express from 'express';
 import cors from 'cors';
+import airlineRoutes from './routes/airlineRoutes.js'
+import cargoRoutes from './routes/cargoRoutes.js'
+import flightRoutes from './routes/flightRoutes.js'
+import passengerRoutes from './routes/passengerRoutes.js'
+import terminalRoutes from './routes/terminalRoutes.js'
 
 const app = express();
 app.use(express.json());
@@ -21,7 +26,7 @@ app.listen(PORT,()=>{
 
 app.get('/test-db', async (req, res) => {
     try {
-        const result = await client.query('SELECT NOW()');
+        const result = await client.query('SELECT * from airlines');
         res.json(result.rows);
     } catch (err) {
         console.error(err);
